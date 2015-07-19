@@ -19,6 +19,7 @@
         "grunt": "~0.4.5",
         "grunt-contrib-imagemin": "latest",
         "grunt-contrib-cssmin": "latest",
+        "grunt-contrib-htmlmin": "latest",
         "time-grunt": "latest"
     }
 }

@@ -42,6 +42,20 @@ module.exports = function(grunt) {
                     ext: '.min.css'
                 }]
             }
+        },
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: './',
+                    src: ['**/*.html', '!node_modules/**/*.html'],
+                    dest: './'
+                }]
+            }
         }
     });
 
@@ -50,6 +64,7 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.registerTask('default', ['imagemin', 'cssmin']);
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.registerTask('default', ['imagemin', 'cssmin', 'htmlmin']);
 
 };
