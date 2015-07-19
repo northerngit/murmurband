@@ -31,6 +31,17 @@ module.exports = function(grunt) {
                     ext: '.jpg'
                 }]
             }
+        },
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'css/',
+                    src: ['*.css', '!*.min.css'],
+                    dest: 'css',
+                    ext: '.min.css'
+                }]
+            }
         }
     });
 
@@ -38,6 +49,7 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
 
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.registerTask('default', ['imagemin']);
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.registerTask('default', ['imagemin', 'cssmin']);
 
 };
